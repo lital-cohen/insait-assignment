@@ -172,12 +172,13 @@
   .done-box strong { color: var(--text); font-weight: 500; }
 
   /* LIGHTBOX for photos */
-  .lb { display: none; position: fixed; inset: 0; background: rgba(10,10,8,0.92); backdrop-filter: blur(12px); z-index: 2000; align-items: center; justify-content: center; flex-direction: column; gap: 1rem; }
+  .lb { display: none; position: fixed; inset: 0; background: rgba(250,250,248,0.97); backdrop-filter: blur(20px); z-index: 2000; align-items: center; justify-content: center; flex-direction: column; gap: 1rem; padding: 2rem; }
   .lb.open { display: flex; }
-  .lb-close { position: absolute; top: 20px; right: 24px; font-size: 24px; cursor: pointer; color: white; background: none; border: none; opacity: 0.5; }
+  .lb-close { position: absolute; top: 20px; right: 24px; font-size: 24px; cursor: pointer; color: var(--text); background: none; border: none; opacity: 0.4; line-height: 1; }
+  .lb-close:hover { opacity: 1; }
   .lb-close:hover { opacity: 1; }
   .lb-img { max-width: 80vw; max-height: 78vh; object-fit: contain; border-radius: 8px; }
-  .lb-caption { font-size: 12px; color: rgba(255,255,255,0.5); text-align: center; }
+  .lb-caption { font-size: 12px; color: var(--muted); text-align: center; }
 
   /* AI SECTION */
   .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
@@ -432,7 +433,7 @@
 
 <!-- MODAL 1: SWAG -->
 <div class="modal" id="modal-swag">
-  <button class="modal-close" onclick="closeModal('swag')">← Back</button>
+  <button class="modal-close" onclick="closeModal('swag')">×</button>
   <div class="modal-inner">
     <p class="modal-eyebrow">Category 01 - Swag & Welcome Kit</p>
     <h1 class="modal-title">Brand connection starts on day one.</h1>
@@ -470,7 +471,7 @@
 
 <!-- MODAL 2: WELLBEING PLAN -->
 <div class="modal" id="modal-events">
-  <button class="modal-close" onclick="closeModal('events')">← Back</button>
+  <button class="modal-close" onclick="closeModal('events')">×</button>
   <div class="modal-inner">
     <p class="modal-eyebrow">Category 02 - Wellbeing Plan</p>
     <h1 class="modal-title">Building culture from the inside out.</h1>
@@ -528,7 +529,7 @@
 
 <!-- MODAL 3: MILESTONES -->
 <div class="modal" id="modal-milestones">
-  <button class="modal-close" onclick="closeModal('milestones')">← Back</button>
+  <button class="modal-close" onclick="closeModal('milestones')">×</button>
   <div class="modal-inner">
     <p class="modal-eyebrow">Category 03 - Milestones & Celebrations</p>
     <h1 class="modal-title">Every person deserves to be seen.</h1>
@@ -566,7 +567,7 @@
 
 <!-- MODAL 4: OFFICE -->
 <div class="modal" id="modal-office">
-  <button class="modal-close" onclick="closeModal('office')">← Back</button>
+  <button class="modal-close" onclick="closeModal('office')">×</button>
   <div class="modal-inner">
     <p class="modal-eyebrow">Category 04 - Office Experience & Operations</p>
     <h1 class="modal-title">a great place to be, and always someone there.</h1>
@@ -597,10 +598,16 @@
 </div>
 
 <!-- PHOTO LIGHTBOX -->
-<div class="lb" id="lb" onclick="closeLb()">
-  <button class="lb-close" onclick="closeLb()">← Back</button>
-  <img class="lb-img" id="lb-img" src="" alt="">
-  <p class="lb-caption" id="lb-caption"></p>
+<div class="lb" id="lb">
+  <button class="lb-close" onclick="closeLb()">×</button>
+  <p style="font-family:'DM Serif Display',serif;font-size:18px;color:var(--text);text-align:center;" id="lb-caption"></p>
+  <div style="position:relative;max-width:600px;width:100%;display:flex;align-items:center;gap:12px;">
+    <button onclick="lbNav(-1)" style="background:rgba(0,0,0,0.07);border:1px solid var(--border);color:var(--text);font-size:20px;width:40px;height:40px;border-radius:50%;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;">‹</button>
+    <img class="lb-img" id="lb-img" src="" alt="" style="flex:1;max-height:58vh;object-fit:contain;border-radius:8px;display:block;">
+    <button onclick="lbNav(1)" style="background:rgba(0,0,0,0.07);border:1px solid var(--border);color:var(--text);font-size:20px;width:40px;height:40px;border-radius:50%;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;">›</button>
+  </div>
+  <div id="lb-thumbs" style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:600px;"></div>
+  <span style="font-size:11px;color:var(--muted);" id="lb-counter"></span>
 </div>
 
 <script>
@@ -612,16 +619,45 @@ function closeModal(id) {
   document.getElementById('modal-' + id).classList.remove('open');
   document.body.style.overflow = '';
 }
+let lbImgs = [], lbCur = 0;
+
 function openLb(img) {
-  document.getElementById('lb-img').src = img.src;
-  document.getElementById('lb-caption').textContent = img.alt;
+  // Collect all images from the same modal
+  const modal = img.closest('.modal');
+  lbImgs = modal ? Array.from(modal.querySelectorAll('.photo-grid img')) : [img];
+  lbCur = lbImgs.indexOf(img);
+  if (lbCur === -1) { lbImgs = [img]; lbCur = 0; }
+  showLb();
   document.getElementById('lb').classList.add('open');
   event.stopPropagation();
 }
+function showLb() {
+  document.getElementById('lb-img').src = lbImgs[lbCur].src;
+  document.getElementById('lb-caption').textContent = lbImgs[lbCur].alt || '';
+  document.getElementById('lb-counter').textContent = (lbCur+1) + ' / ' + lbImgs.length;
+  const wrap = document.getElementById('lb-thumbs');
+  wrap.innerHTML = '';
+  lbImgs.forEach((im, i) => {
+    const t = document.createElement('img');
+    t.src = im.src;
+    t.style.cssText = 'width:48px;height:48px;object-fit:cover;border-radius:6px;cursor:pointer;opacity:' + (i===lbCur?'1':'0.45') + ';border:2px solid ' + (i===lbCur?'#111118':'transparent') + ';transition:opacity 0.15s;';
+    t.onclick = (e) => { e.stopPropagation(); lbCur=i; showLb(); };
+    wrap.appendChild(t);
+  });
+}
+function lbNav(d) { lbCur = (lbCur+d+lbImgs.length)%lbImgs.length; showLb(); }
 function closeLb() {
   document.getElementById('lb').classList.remove('open');
 }
+document.getElementById('lb').addEventListener('click', e => { if(e.target===document.getElementById('lb')) closeLb(); });
+let lbTx=0;
+document.getElementById('lb').addEventListener('touchstart',e=>lbTx=e.touches[0].clientX,{passive:true});
+document.getElementById('lb').addEventListener('touchend',e=>{if(Math.abs(lbTx-e.changedTouches[0].clientX)>50)lbNav(lbTx>e.changedTouches[0].clientX?1:-1);},{passive:true});
 document.addEventListener('keydown', e => {
+  if (document.getElementById('lb').classList.contains('open')) {
+    if (e.key === 'ArrowRight') lbNav(1);
+    if (e.key === 'ArrowLeft') lbNav(-1);
+  }
   if (e.key === 'Escape') {
     document.querySelectorAll('.modal.open').forEach(m => {
       m.classList.remove('open');

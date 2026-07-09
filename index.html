@@ -46,7 +46,7 @@
   .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
   /* CATEGORY CARDS GRID */
-  .cat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
 
   /* CATEGORY CARD */
   .cat-card {
@@ -63,7 +63,7 @@
 
   /* CARD COVER */
   .cat-cover {
-    height: 340px;
+    height: 260px;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -306,8 +306,8 @@
 <!-- 4 CATEGORY CARDS -->
 <div class="section">
   <p class="section-label">Part 1 - My 60-Day Plan</p>
-  <div style="max-width:680px;margin-bottom:2rem;">
-    <p style="font-size:14px;color:var(--muted);font-weight:300;line-height:1.85;">I chose to focus on four categories: <strong style="color:var(--text);font-weight:500;">Swag & Welcome Kit</strong>, the <strong style="color:var(--text);font-weight:500;">Wellbeing Plan</strong>, <strong style="color:var(--text);font-weight:500;">Milestones & Celebrations</strong>, and <strong style="color:var(--text);font-weight:500;">Office Experience & Operations</strong>. Starting here let me set clear priorities and build the right infrastructure early on - one that shows up in the day-to-day workplace just as much as in the moments people share along the way.</p>
+  <div style="max-width:640px;margin:0 auto 2rem;text-align:center;">
+    <p style="font-size:14px;color:var(--muted);font-weight:300;line-height:1.85;">I chose to focus on four categories: Swag & Welcome Kit, the Wellbeing Plan, Milestones & Celebrations, and Office Experience & Operations. Starting here let me set clear priorities and build the right infrastructure early on - one that shows up in the day-to-day workplace just as much as in the moments people share along the way.</p>
   </div>
   <div class="cat-grid">
 
@@ -346,7 +346,7 @@
     <!-- 3. MILESTONES -->
     <div class="cat-card" onclick="openModal('milestones')">
       <div class="cat-cover">
-        <img src="Images/Anniversary/4.jpg" alt="Moments">
+        <img src="Images/Greeting/4.jpeg" alt="Moments">
         <div class="cat-cover-overlay"></div>
         <div class="cat-cover-num">03</div>
         <div class="cat-cover-tag">Every milestone, every time</div>
@@ -362,7 +362,7 @@
     <!-- 4. OFFICE -->
     <div class="cat-card" onclick="openModal('office')">
       <div class="cat-cover">
-        <img src="Images/Office/1.jpg" alt="Office">
+        <img src="Images/Office/1.png" alt="Office">
         <div class="cat-cover-overlay"></div>
         <div class="cat-cover-num">04</div>
         <div class="cat-cover-tag">The invisible infrastructure</div>
@@ -453,7 +453,7 @@
     <p class="modal-lead">A branded kit for everyone - existing employees and new joiners alike. Produced in Israel, shipped globally. The moment it arrives, you're part of the team. Every recipient shares a photo in <strong>#people-moments</strong>.</p>
 
     <div class="swag-slideshow">
-      <img class="swag-main-img" id="swag-main" onclick="openSwagLb()" src="Images/SWAG/1.png" alt="T-Shirt – White">
+      <img class="swag-main-img" id="swag-main" onclick="openSwagLb()" src="Images/SWAG/1.png" alt="">
     </div>
     <div class="swag-nav">
       <button class="swag-nav-btn" onclick="swagSlide(-1)">‹</button>
@@ -630,17 +630,17 @@
 <script>
 
 const SWAG_IMGS = [
-  {src:"Images/SWAG/1.png", alt:"T-Shirt – White"},
-  {src:"Images/SWAG/2.png", alt:"T-Shirt – Black"},
+  {src:"Images/SWAG/1.png", alt:""},
+  {src:"Images/SWAG/2.png", alt:""},
   {src:"Images/SWAG/3.png", alt:"Herschel Backpack · Navy with Insait logo"},
   {src:"Images/SWAG/4.png", alt:"Branded Gift Box · Socks edition"},
   {src:"Images/SWAG/5.png", alt:"Branded Socks · Black & white pair"},
-  {src:"Images/SWAG/7.png", alt:"Hoodie – Navy · Orange drawstrings"},
-  {src:"Images/SWAG/8.png", alt:"Fleece Jacket – White"},
-  {src:"Images/SWAG/9.png", alt:"Fleece Jacket – Sand"},
+  {src:"Images/SWAG/7.png", alt:""},
+  {src:"Images/SWAG/8.png", alt:""},
+  {src:"Images/SWAG/9.png", alt:""},
   {src:"Images/SWAG/10.png", alt:"Kraft Notebook · Dotted pages"},
   {src:"Images/SWAG/11.png", alt:"Branded Notebook"},
-  {src:"Images/SWAG/15.png", alt:"Apple Watch · Gift for 5-Year Anniversary"},
+  {src:"Images/SWAG/15.jpeg", alt:"Apple Watch · Gift for 5-Year Anniversary"},
   {src:"Images/SWAG/13.png", alt:"Lululemon Bottle"},
   {src:"Images/SWAG/14.png", alt:"Branded Cap"},
   {src:"Images/SWAG/16.png", alt:"Branded Bottle"},

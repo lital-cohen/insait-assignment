@@ -63,7 +63,7 @@
 
   /* CARD COVER */
   .cat-cover {
-    height: 300px;
+    height: 260px;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -146,7 +146,7 @@
   .photo-grid img {
     width: 100%; border-radius: 10px; object-fit: cover;
     cursor: pointer; transition: transform 0.15s;
-    aspect-ratio: 1/1;
+    aspect-ratio: 4/3;
   }
   .photo-grid img:hover { transform: scale(1.02); }
   .photo-grid img.tall { aspect-ratio: 3/4; }
@@ -359,7 +359,7 @@
     <!-- 4. OFFICE -->
     <div class="cat-card" onclick="openModal('office')">
       <div class="cat-cover">
-        <img src="Images/OFFICE/Office.jpg" alt="Office">
+        <img src="Images/SWAG/16.png" alt="Office">
         <div class="cat-cover-overlay"></div>
         <div class="cat-cover-num">04</div>
         <div class="cat-cover-tag">The invisible infrastructure</div>
@@ -450,7 +450,7 @@
     <p class="modal-lead">A branded kit for everyone - existing employees and new joiners alike. Produced in Israel, shipped globally. The moment it arrives, you're part of the team. Every recipient shares a photo in <strong>#people-moments</strong>.</p>
 
     <div class="swag-slideshow">
-      <img class="swag-main-img" id="swag-main" src="Images/SWAG/1.png" alt="T-Shirt – Black" onclick="openLb(this)">
+      <img class="swag-main-img" id="swag-main" onclick="openSwagLb()" src="Images/SWAG/1.png" alt="T-Shirt Black" onclick="openLb(this)">
     </div>
     <div class="swag-nav">
       <button class="swag-nav-btn" onclick="swagSlide(-1)">‹</button>
@@ -487,22 +487,24 @@
     <div class="modal-sub">
       <h2 class="modal-sub-title">Happy Hour - Every Two Weeks</h2>
       <p class="modal-sub-text">Every two weeks. Kosher, vegan-friendly, always a surprise.</p>
-      <div class="photo-grid cols3" style="margin-top:12px;">
+      <div class="photo-grid cols2" style="margin-bottom:8px;">
         <div>
           <img src="Images/HAPPY HOUR/McDonalds.png" alt="McDonald's" onclick="openLb(this)" style="margin-bottom:6px;">
           <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">McDonald's</p>
         </div>
         <div>
-          <img src="Images/HAPPY HOUR/Jusa.jpg" alt="JUSA" onclick="openLb(this)" style="margin-bottom:6px;">
+          <img src="Images/HAPPY HOUR/Jusa.jpg" alt="JUSA Cold Pressed" onclick="openLb(this)" style="margin-bottom:6px;">
           <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">JUSA Cold Pressed</p>
         </div>
-        <div>
-          <img src="Images/HAPPY HOUR/Humus.jpeg" alt="Hummus" onclick="openLb(this)" style="margin-bottom:6px;">
-          <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">Hummus & Falafel</p>
-        </div>
+      </div>
+      <div class="photo-grid cols2">
         <div>
           <img src="Images/HAPPY HOUR/Pancake.png" alt="Pancake" onclick="openLb(this)" style="margin-bottom:6px;">
           <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">Pancake</p>
+        </div>
+        <div>
+          <img src="Images/HAPPY HOUR/Humus.jpeg" alt="Hummus & Falafel" onclick="openLb(this)" style="margin-bottom:6px;">
+          <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">Hummus & Falafel</p>
         </div>
       </div>
       <span class="modal-tag">Kosher</span>
@@ -512,13 +514,14 @@
 
     <div class="modal-divider"></div><div class="modal-sub">
       <h2 class="modal-sub-title">Company Event - Rosh Hashanah</h2>
-      <p class="modal-sub-text">Volunteering in the morning, shared lunch, and a Rosh Hashanah dinner. Branded table settings, seasonal flowers, and a moment that says: we're a team.</p>
+      <p class="modal-sub-text">In the morning, we go out together for a volunteering activity - packing holiday gift boxes for families ahead of Rosh Hashana. From there we continue to a team lunch. In the evening, a sit-down dinner with branded table settings, seasonal flowers, and personal menus. Every employee receives a holiday gift package to take home.</p>
       <div class="photo-grid cols2">
         <img src="Images/HAPPY HOUR/New Year.jpg" alt="Rosh Hashana Dinner" onclick="openLb(this)">
       </div>
       <span class="modal-tag">Volunteering morning</span>
       <span class="modal-tag">Team lunch</span>
       <span class="modal-tag">Rosh Hashanah dinner</span>
+      <span class="modal-tag">Holiday gift for each employee</span>
     </div>
 
     <div class="modal-divider"></div>
@@ -555,6 +558,8 @@
         <img src="Images/Greeting/1.png" alt="Welcome" onclick="openLb(this)">
         <img src="Images/Greeting/2.jpeg" alt="Happy Anniversary" onclick="openLb(this)">
         <img src="Images/Greeting/3.jpeg" alt="Happy Halloween" onclick="openLb(this)">
+      </div>
+      <div class="photo-grid cols2" style="max-width:66%;margin:8px auto 0;">
         <img src="Images/Greeting/4.jpeg" alt="Merry Christmas" onclick="openLb(this)">
         <img src="Images/Greeting/5.jpeg" alt="Happy 4th of July" onclick="openLb(this)">
       </div>
@@ -609,7 +614,7 @@
 <!-- PHOTO LIGHTBOX -->
 <div class="lb" id="lb">
   <button class="lb-close" onclick="closeLb()">×</button>
-  <p style="font-family:'DM Serif Display',serif;font-size:18px;color:var(--text);text-align:center;" id="lb-caption"></p>
+  <p style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:var(--text);text-align:center;" id="lb-caption"></p>
   <div style="position:relative;max-width:600px;width:100%;display:flex;align-items:center;gap:12px;">
     <button onclick="lbNav(-1)" style="background:rgba(0,0,0,0.07);border:1px solid var(--border);color:var(--text);font-size:20px;width:40px;height:40px;border-radius:50%;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;">‹</button>
     <img class="lb-img" id="lb-img" src="" alt="" style="flex:1;max-height:58vh;object-fit:contain;border-radius:8px;display:block;">
@@ -622,21 +627,21 @@
 <script>
 
 const SWAG_IMGS = [
-  {src:"Images/SWAG/1.png", alt:"T-Shirt – Black"},
-  {src:"Images/SWAG/2.png", alt:"T-Shirt White"},
-  {src:"Images/SWAG/3.png", alt:"Backpack"},
-  {src:"Images/SWAG/4.png", alt:"Socks Box"},
-  {src:"Images/SWAG/5.png", alt:"Socks"},
-  {src:"Images/SWAG/7.png", alt:"Hoodie Orange"},
-  {src:"Images/SWAG/8.png", alt:"Fleece White"},
-  {src:"Images/SWAG/9.png", alt:"Fleece Sand"},
-  {src:"Images/SWAG/10.png", alt:"Notebook"},
-  {src:"Images/SWAG/12.png", alt:"Watch - 5yr Anniversary"},
+  {src:"Images/SWAG/1.png", alt:"T-Shirt – Black · Chest logo + sleeve detail"},
+  {src:"Images/SWAG/2.png", alt:"T-Shirt – White · Black collar edition"},
+  {src:"Images/SWAG/3.png", alt:"Herschel Backpack · Navy with Insait logo"},
+  {src:"Images/SWAG/4.png", alt:"Branded Gift Box · Socks edition"},
+  {src:"Images/SWAG/5.png", alt:"Branded Socks · Black & white pair"},
+  {src:"Images/SWAG/7.png", alt:"Hoodie – Navy · Orange drawstrings"},
+  {src:"Images/SWAG/8.png", alt:"Fleece Jacket – White"},
+  {src:"Images/SWAG/9.png", alt:"Fleece Jacket – Sand"},
+  {src:"Images/SWAG/10.png", alt:"Kraft Notebook · Dotted pages"},
+  {src:"Images/SWAG/11.png", alt:"Branded Notebook"},
+  {src:"Images/SWAG/12.png", alt:"Apple Watch · 5 Year Anniversary Gift"},
   {src:"Images/SWAG/13.png", alt:"Lululemon Bottle"},
-  {src:"Images/SWAG/11.png", alt:"Notebook"},
-  {src:"Images/SWAG/14.png", alt:"Cap"},
-  {src:"Images/SWAG/16.png", alt:"Bottle"},
-  {src:"Images/SWAG/18.png", alt:"Swag item"}
+  {src:"Images/SWAG/14.png", alt:"Branded Cap"},
+  {src:"Images/SWAG/16.png", alt:"Branded Bottle"},
+  {src:"Images/SWAG/18.png", alt:"Swag Item"},
 ];
 let swagCur = 0;
 function initSwagSlideshow() {
@@ -658,6 +663,13 @@ function updateSwag() {
 }
 function swagSlide(d) { swagCur=(swagCur+d+SWAG_IMGS.length)%SWAG_IMGS.length; updateSwag(); }
 
+
+function openSwagLb() {
+  lbImgs = SWAG_IMGS.map(x => ({src: x.src, alt: x.alt}));
+  lbCur = swagCur;
+  showLb();
+  document.getElementById('lb').classList.add('open');
+}
 function openModal(id) {
   document.getElementById('modal-' + id).classList.add('open');
   document.body.style.overflow = 'hidden';

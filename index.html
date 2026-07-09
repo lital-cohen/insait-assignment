@@ -63,7 +63,7 @@
 
   /* CARD COVER */
   .cat-cover {
-    height: 200px;
+    height: 220px;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -87,7 +87,7 @@
   }
   .cat-cover-tag {
     position: absolute;
-    bottom: 14px; left: 50%; transform: translateX(-50%); white-space: nowrap;
+    bottom: 12px; left: 50%; transform: translateX(-50%); white-space: nowrap;
     background: rgba(255,255,255,0.85);
     color: #555;
     font-size: 9px;
@@ -432,7 +432,7 @@
 
 <!-- MODAL 1: SWAG -->
 <div class="modal" id="modal-swag">
-  <button class="modal-close" onclick="closeModal('swag')">×</button>
+  <button class="modal-close" onclick="closeModal('swag')">← Back</button>
   <div class="modal-inner">
     <p class="modal-eyebrow">Category 01 - Swag & Welcome Kit</p>
     <h1 class="modal-title">Brand connection starts on day one.</h1>
@@ -470,24 +470,11 @@
 
 <!-- MODAL 2: WELLBEING PLAN -->
 <div class="modal" id="modal-events">
-  <button class="modal-close" onclick="closeModal('events')">×</button>
+  <button class="modal-close" onclick="closeModal('events')">← Back</button>
   <div class="modal-inner">
     <p class="modal-eyebrow">Category 02 - Wellbeing Plan</p>
     <h1 class="modal-title">Building culture from the inside out.</h1>
     <p class="modal-lead">Start with the whole company. Then zoom in on teams. In the first 60 days: shared events and Happy Hours that bring everyone together. After that - team bonding days with a quarterly budget and activity ideas I'll curate: pub quizzes, Beit Ha'Nasi tours, cooking classes, Tau Bar, Aur Pulse, and more.</p>
-
-    <div class="modal-divider"></div>
-
-    <div class="modal-sub">
-      <h2 class="modal-sub-title">Company Event - Rosh Hashanah</h2>
-      <p class="modal-sub-text">Volunteering in the morning, shared lunch, and a Rosh Hashanah dinner. Branded table settings, seasonal flowers, and a moment that says: we're a team.</p>
-      <div class="photo-grid cols2">
-        <img src="Images/HAPPY HOUR/New Year.jpg" alt="Rosh Hashana Dinner" onclick="openLb(this)">
-      </div>
-      <span class="modal-tag">Volunteering morning</span>
-      <span class="modal-tag">Team lunch</span>
-      <span class="modal-tag">Rosh Hashanah dinner</span>
-    </div>
 
     <div class="modal-divider"></div>
 
@@ -513,6 +500,17 @@
       <span class="modal-tag">Every 2 weeks</span>
     </div>
 
+    <div class="modal-divider"></div><div class="modal-sub">
+      <h2 class="modal-sub-title">Company Event - Rosh Hashanah</h2>
+      <p class="modal-sub-text">Volunteering in the morning, shared lunch, and a Rosh Hashanah dinner. Branded table settings, seasonal flowers, and a moment that says: we're a team.</p>
+      <div class="photo-grid cols2">
+        <img src="Images/HAPPY HOUR/New Year.jpg" alt="Rosh Hashana Dinner" onclick="openLb(this)">
+      </div>
+      <span class="modal-tag">Volunteering morning</span>
+      <span class="modal-tag">Team lunch</span>
+      <span class="modal-tag">Rosh Hashanah dinner</span>
+    </div>
+
     <div class="modal-divider"></div>
 
     <div class="modal-sub">
@@ -530,7 +528,7 @@
 
 <!-- MODAL 3: MILESTONES -->
 <div class="modal" id="modal-milestones">
-  <button class="modal-close" onclick="closeModal('milestones')">×</button>
+  <button class="modal-close" onclick="closeModal('milestones')">← Back</button>
   <div class="modal-inner">
     <p class="modal-eyebrow">Category 03 - Milestones & Celebrations</p>
     <h1 class="modal-title">Every person deserves to be seen.</h1>
@@ -568,7 +566,7 @@
 
 <!-- MODAL 4: OFFICE -->
 <div class="modal" id="modal-office">
-  <button class="modal-close" onclick="closeModal('office')">×</button>
+  <button class="modal-close" onclick="closeModal('office')">← Back</button>
   <div class="modal-inner">
     <p class="modal-eyebrow">Category 04 - Office Experience & Operations</p>
     <h1 class="modal-title">a great place to be, and always someone there.</h1>
@@ -600,7 +598,7 @@
 
 <!-- PHOTO LIGHTBOX -->
 <div class="lb" id="lb" onclick="closeLb()">
-  <button class="lb-close" onclick="closeLb()">×</button>
+  <button class="lb-close" onclick="closeLb()">← Back</button>
   <img class="lb-img" id="lb-img" src="" alt="">
   <p class="lb-caption" id="lb-caption"></p>
 </div>

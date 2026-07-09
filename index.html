@@ -172,7 +172,7 @@
   .done-box strong { color: var(--text); font-weight: 500; }
 
   /* LIGHTBOX for photos */
-  .lb { display: none; position: fixed; inset: 0; background: rgba(250,250,248,0.97); backdrop-filter: blur(20px); z-index: 2000; align-items: center; justify-content: center; flex-direction: column; gap: 1rem; padding: 2rem; }
+  .lb { display: none; position: fixed; inset: 0; background: rgba(250,250,248,0.97); backdrop-filter: blur(20px); z-index: 2000; align-items: center; justify-content: center; flex-direction: column; gap: 1rem; padding: 2rem; overflow-y: auto; }
   .lb.open { display: flex; }
   .lb-close { position: absolute; top: 20px; right: 24px; font-size: 24px; cursor: pointer; color: var(--text); background: none; border: none; opacity: 0.4; line-height: 1; }
   .lb-close:hover { opacity: 1; }
@@ -246,6 +246,9 @@
     footer { padding: 12px 20px; flex-direction: column; gap: 4px; }
     .divider { margin: 0 20px; }
     header, .hero, .stats, .section, .closing { padding-left: 20px; padding-right: 20px; }
+    .lb { padding: 1rem; gap: 0.5rem; }
+    .lb-img { max-height: 48vh; max-width: 100%; }
+    .swag-main-img { height: 260px; }
   }
 
   @media (prefers-color-scheme: dark) {
@@ -492,21 +495,21 @@
       <p class="modal-sub-text">Every two weeks. Kosher, vegan-friendly, always a surprise.</p>
       <div class="photo-grid cols2" style="margin-bottom:8px;max-width:78%;margin-left:auto;margin-right:auto;">
         <div>
-          <img src="Images/HAPPY HOUR/McDonalds.png" alt="McDonald's" onclick="openLb(this)" style="margin-bottom:6px;">
+          <img src="Images/HAPPY HOUR/McDonalds.png" alt="McDonald's" onclick="openLb(this, event)" style="margin-bottom:6px;">
           <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">McDonald's</p>
         </div>
         <div>
-          <img src="Images/HAPPY HOUR/Jusa.jpg" alt="Juices &amp; Yogurts" onclick="openLb(this)" style="margin-bottom:6px;">
+          <img src="Images/HAPPY HOUR/Jusa.jpg" alt="Juices &amp; Yogurts" onclick="openLb(this, event)" style="margin-bottom:6px;">
           <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">Juices &amp; Yogurts</p>
         </div>
       </div>
       <div class="photo-grid cols2" style="max-width:78%;margin-left:auto;margin-right:auto;">
         <div>
-          <img src="Images/HAPPY HOUR/Pancake.png" alt="Pancake" onclick="openLb(this)" style="margin-bottom:6px;">
+          <img src="Images/HAPPY HOUR/Pancake.png" alt="Pancake" onclick="openLb(this, event)" style="margin-bottom:6px;">
           <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">Pancake</p>
         </div>
         <div>
-          <img src="Images/HAPPY HOUR/Humus.jpeg" alt="Hummus &amp; Falafel" onclick="openLb(this)" style="margin-bottom:6px;">
+          <img src="Images/HAPPY HOUR/Humus.jpeg" alt="Hummus &amp; Falafel" onclick="openLb(this, event)" style="margin-bottom:6px;">
           <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">Hummus &amp; Falafel</p>
         </div>
       </div>
@@ -519,7 +522,7 @@
       <h2 class="modal-sub-title">Company Event - Rosh Hashanah</h2>
       <p class="modal-sub-text">In the morning, we go out together for a team-bonding volunteering activity - packing holiday gift boxes for families ahead of Rosh Hashana. From there, we continue to a team lunch, and every employee receives a holiday gift package to celebrate the new year.</p>
       <div style="max-width:50%;margin:0 auto;">
-        <img src="Images/HAPPY HOUR/New Year.jpg" alt="Rosh Hashana Dinner" onclick="openLb(this)" style="width:100%;border-radius:10px;object-fit:cover;cursor:pointer;aspect-ratio:4/3;display:block;">
+        <img src="Images/HAPPY HOUR/New Year.jpg" alt="Rosh Hashana Dinner" onclick="openLb(this, event)" style="width:100%;border-radius:10px;object-fit:cover;cursor:pointer;aspect-ratio:4/3;display:block;">
       </div>
       <p style="font-family:'DM Serif Display',serif;font-size:15px;font-style:italic;color:var(--text);text-align:center;margin:10px 0 12px;">Rosh Hashana Dinner</p>
       <span class="modal-tag">Volunteering morning</span>
@@ -558,13 +561,13 @@
       <h2 class="modal-sub-title">What gets celebrated</h2>
 
       <div class="photo-grid cols3" style="margin-top:12px;">
-        <img src="Images/Greeting/1.png" alt="Welcome" onclick="openLb(this)">
-        <img src="Images/Greeting/2.jpeg" alt="Happy Anniversary" onclick="openLb(this)">
-        <img src="Images/Greeting/3.jpeg" alt="Happy Halloween" onclick="openLb(this)">
+        <img src="Images/Greeting/1.png" alt="Welcome" onclick="openLb(this, event)">
+        <img src="Images/Greeting/2.jpeg" alt="Happy Anniversary" onclick="openLb(this, event)">
+        <img src="Images/Greeting/3.jpeg" alt="Happy Halloween" onclick="openLb(this, event)">
       </div>
       <div class="photo-grid cols2" style="max-width:66%;margin:16px auto 0;">
-        <img src="Images/Greeting/4.jpeg" alt="Merry Christmas" onclick="openLb(this)">
-        <img src="Images/Greeting/5.jpeg" alt="Happy 4th of July" onclick="openLb(this)">
+        <img src="Images/Greeting/4.jpeg" alt="Merry Christmas" onclick="openLb(this, event)">
+        <img src="Images/Greeting/5.jpeg" alt="Happy 4th of July" onclick="openLb(this, event)">
       </div>
     </div>
 
@@ -684,7 +687,7 @@ function closeModal(id) {
 }
 let lbImgs = [], lbCur = 0;
 
-function openLb(img) {
+function openLb(img, evt) {
   // Collect all images from the same modal
   const modal = img.closest('.modal');
   lbImgs = modal ? Array.from(modal.querySelectorAll('.photo-grid img')) : [img];
@@ -692,7 +695,7 @@ function openLb(img) {
   if (lbCur === -1) { lbImgs = [img]; lbCur = 0; }
   showLb();
   document.getElementById('lb').classList.add('open');
-  event.stopPropagation();
+  if (evt) evt.stopPropagation();
 }
 function showLb() {
   document.getElementById('lb-img').src = lbImgs[lbCur].src;

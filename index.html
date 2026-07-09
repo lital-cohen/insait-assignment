@@ -63,7 +63,7 @@
 
   /* CARD COVER */
   .cat-cover {
-    height: 260px;
+    height: 300px;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -146,7 +146,7 @@
   .photo-grid img {
     width: 100%; border-radius: 10px; object-fit: cover;
     cursor: pointer; transition: transform 0.15s;
-    aspect-ratio: 4/3;
+    aspect-ratio: 1/1;
   }
   .photo-grid img:hover { transform: scale(1.02); }
   .photo-grid img.tall { aspect-ratio: 3/4; }
@@ -311,7 +311,7 @@
     <!-- 1. SWAG -->
     <div class="cat-card" onclick="openModal('swag')">
       <div class="cat-cover">
-        <img src="Images/SWAG/7.png" alt="Swag">
+        <img src="Images/SWAG/2.png" alt="Swag">
         <div class="cat-cover-overlay"></div>
         <div class="cat-cover-num">01</div>
         <div class="cat-cover-tag">Day-one experience</div>
@@ -343,7 +343,7 @@
     <!-- 3. MILESTONES -->
     <div class="cat-card" onclick="openModal('milestones')">
       <div class="cat-cover">
-        <img src="Images/Greeting/3.jpeg" alt="Moments">
+        <img src="Images/Greeting/2.jpeg" alt="Moments">
         <div class="cat-cover-overlay"></div>
         <div class="cat-cover-num">03</div>
         <div class="cat-cover-tag">Every milestone, every time</div>
@@ -359,7 +359,7 @@
     <!-- 4. OFFICE -->
     <div class="cat-card" onclick="openModal('office')">
       <div class="cat-cover">
-        <img src="Images/SWAG/16.png" alt="Office">
+        <img src="Images/OFFICE/Office.jpg" alt="Office">
         <div class="cat-cover-overlay"></div>
         <div class="cat-cover-num">04</div>
         <div class="cat-cover-tag">The invisible infrastructure</div>
@@ -450,7 +450,7 @@
     <p class="modal-lead">A branded kit for everyone - existing employees and new joiners alike. Produced in Israel, shipped globally. The moment it arrives, you're part of the team. Every recipient shares a photo in <strong>#people-moments</strong>.</p>
 
     <div class="swag-slideshow">
-      <img class="swag-main-img" id="swag-main" src="Images/SWAG/1.png" alt="T-Shirt Black" onclick="openLb(this)">
+      <img class="swag-main-img" id="swag-main" src="Images/SWAG/1.png" alt="T-Shirt – Black" onclick="openLb(this)">
     </div>
     <div class="swag-nav">
       <button class="swag-nav-btn" onclick="swagSlide(-1)">‹</button>
@@ -552,11 +552,11 @@
       <h2 class="modal-sub-title">What gets celebrated</h2>
 
       <div class="photo-grid cols3" style="margin-top:12px;">
-        <img src="Images/Greeting/1.png" alt="Birthday Card" onclick="openLb(this)">
-        <img src="Images/Greeting/2.jpeg" alt="Birthday Card v2" onclick="openLb(this)">
-        <img src="Images/Greeting/3.jpeg" alt="4th of July" onclick="openLb(this)">
-        <img src="Images/Greeting/4.jpeg" alt="Christmas" onclick="openLb(this)">
-        <img src="Images/Greeting/5.jpeg" alt="Halloween" onclick="openLb(this)">
+        <img src="Images/Greeting/1.png" alt="Welcome" onclick="openLb(this)">
+        <img src="Images/Greeting/2.jpeg" alt="Happy Anniversary" onclick="openLb(this)">
+        <img src="Images/Greeting/3.jpeg" alt="Happy Halloween" onclick="openLb(this)">
+        <img src="Images/Greeting/4.jpeg" alt="Merry Christmas" onclick="openLb(this)">
+        <img src="Images/Greeting/5.jpeg" alt="Happy 4th of July" onclick="openLb(this)">
       </div>
     </div>
 
@@ -622,12 +622,11 @@
 <script>
 
 const SWAG_IMGS = [
-  {src:"Images/SWAG/1.png", alt:"T-Shirt Black"},
+  {src:"Images/SWAG/1.png", alt:"T-Shirt – Black"},
   {src:"Images/SWAG/2.png", alt:"T-Shirt White"},
   {src:"Images/SWAG/3.png", alt:"Backpack"},
   {src:"Images/SWAG/4.png", alt:"Socks Box"},
   {src:"Images/SWAG/5.png", alt:"Socks"},
-  {src:"Images/SWAG/6.png", alt:"Hoodie Navy"},
   {src:"Images/SWAG/7.png", alt:"Hoodie Orange"},
   {src:"Images/SWAG/8.png", alt:"Fleece White"},
   {src:"Images/SWAG/9.png", alt:"Fleece Sand"},
@@ -636,7 +635,6 @@ const SWAG_IMGS = [
   {src:"Images/SWAG/13.png", alt:"Lululemon Bottle"},
   {src:"Images/SWAG/11.png", alt:"Notebook"},
   {src:"Images/SWAG/14.png", alt:"Cap"},
-  {src:"Images/SWAG/15.jpeg", alt:"Apple Watch"},
   {src:"Images/SWAG/16.png", alt:"Bottle"},
   {src:"Images/SWAG/18.png", alt:"Swag item"}
 ];

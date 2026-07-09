@@ -46,7 +46,7 @@
   .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
   /* CATEGORY CARDS GRID */
-  .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .cat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 
   /* CATEGORY CARD */
   .cat-card {
@@ -63,7 +63,7 @@
 
   /* CARD COVER */
   .cat-cover {
-    height: 260px;
+    height: 340px;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -306,6 +306,9 @@
 <!-- 4 CATEGORY CARDS -->
 <div class="section">
   <p class="section-label">Part 1 - My 60-Day Plan</p>
+  <div style="max-width:680px;margin-bottom:2rem;">
+    <p style="font-size:14px;color:var(--muted);font-weight:300;line-height:1.85;">I chose to focus on four categories: <strong style="color:var(--text);font-weight:500;">Swag & Welcome Kit</strong>, the <strong style="color:var(--text);font-weight:500;">Wellbeing Plan</strong>, <strong style="color:var(--text);font-weight:500;">Milestones & Celebrations</strong>, and <strong style="color:var(--text);font-weight:500;">Office Experience & Operations</strong>. Starting here let me set clear priorities and build the right infrastructure early on - one that shows up in the day-to-day workplace just as much as in the moments people share along the way.</p>
+  </div>
   <div class="cat-grid">
 
     <!-- 1. SWAG -->
@@ -343,7 +346,7 @@
     <!-- 3. MILESTONES -->
     <div class="cat-card" onclick="openModal('milestones')">
       <div class="cat-cover">
-        <img src="Images/Greeting/2.jpeg" alt="Moments">
+        <img src="Images/Anniversary/4.jpg" alt="Moments">
         <div class="cat-cover-overlay"></div>
         <div class="cat-cover-num">03</div>
         <div class="cat-cover-tag">Every milestone, every time</div>
@@ -359,7 +362,7 @@
     <!-- 4. OFFICE -->
     <div class="cat-card" onclick="openModal('office')">
       <div class="cat-cover">
-        <img src="Images/SWAG/16.png" alt="Office">
+        <img src="Images/Office/1.jpg" alt="Office">
         <div class="cat-cover-overlay"></div>
         <div class="cat-cover-num">04</div>
         <div class="cat-cover-tag">The invisible infrastructure</div>
@@ -450,7 +453,7 @@
     <p class="modal-lead">A branded kit for everyone - existing employees and new joiners alike. Produced in Israel, shipped globally. The moment it arrives, you're part of the team. Every recipient shares a photo in <strong>#people-moments</strong>.</p>
 
     <div class="swag-slideshow">
-      <img class="swag-main-img" id="swag-main" onclick="openSwagLb()" src="Images/SWAG/1.png" alt="T-Shirt – White · Black collar edition">
+      <img class="swag-main-img" id="swag-main" onclick="openSwagLb()" src="Images/SWAG/1.png" alt="T-Shirt – White">
     </div>
     <div class="swag-nav">
       <button class="swag-nav-btn" onclick="swagSlide(-1)">‹</button>
@@ -487,24 +490,24 @@
     <div class="modal-sub">
       <h2 class="modal-sub-title">Happy Hour - Every Two Weeks</h2>
       <p class="modal-sub-text">Every two weeks. Kosher, vegan-friendly, always a surprise.</p>
-      <div class="photo-grid cols2" style="margin-bottom:8px;">
+      <div class="photo-grid cols2" style="margin-bottom:8px;max-width:78%;margin-left:auto;margin-right:auto;">
         <div>
           <img src="Images/HAPPY HOUR/McDonalds.png" alt="McDonald's" onclick="openLb(this)" style="margin-bottom:6px;">
           <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">McDonald's</p>
         </div>
         <div>
-          <img src="Images/HAPPY HOUR/Jusa.jpg" alt="JUSA Cold Pressed" onclick="openLb(this)" style="margin-bottom:6px;">
-          <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">JUSA Cold Pressed</p>
+          <img src="Images/HAPPY HOUR/Jusa.jpg" alt="Juices &amp; Yogurts" onclick="openLb(this)" style="margin-bottom:6px;">
+          <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">Juices &amp; Yogurts</p>
         </div>
       </div>
-      <div class="photo-grid cols2">
+      <div class="photo-grid cols2" style="max-width:78%;margin-left:auto;margin-right:auto;">
         <div>
           <img src="Images/HAPPY HOUR/Pancake.png" alt="Pancake" onclick="openLb(this)" style="margin-bottom:6px;">
           <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">Pancake</p>
         </div>
         <div>
-          <img src="Images/HAPPY HOUR/Humus.jpeg" alt="Hummus & Falafel" onclick="openLb(this)" style="margin-bottom:6px;">
-          <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">Hummus & Falafel</p>
+          <img src="Images/HAPPY HOUR/Humus.jpeg" alt="Hummus &amp; Falafel" onclick="openLb(this)" style="margin-bottom:6px;">
+          <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">Hummus &amp; Falafel</p>
         </div>
       </div>
       <span class="modal-tag">Kosher</span>
@@ -515,10 +518,10 @@
     <div class="modal-divider"></div><div class="modal-sub">
       <h2 class="modal-sub-title">Company Event - Rosh Hashanah</h2>
       <p class="modal-sub-text">In the morning, we go out together for a team-bonding volunteering activity - packing holiday gift boxes for families ahead of Rosh Hashana. From there, we continue to a team lunch, and every employee receives a holiday gift package to celebrate the new year.</p>
-      <div class="photo-grid cols2">
-        <img src="Images/HAPPY HOUR/New Year.jpg" alt="Rosh Hashana Dinner" onclick="openLb(this)">
+      <div style="max-width:50%;margin:0 auto;">
+        <img src="Images/HAPPY HOUR/New Year.jpg" alt="Rosh Hashana Dinner" onclick="openLb(this)" style="width:100%;border-radius:10px;object-fit:cover;cursor:pointer;aspect-ratio:4/3;display:block;">
       </div>
-      <p style="font-family:'DM Serif Display',serif;font-size:15px;font-style:italic;color:var(--text);text-align:center;margin:-8px 0 12px;">Rosh Hashana Dinner</p>
+      <p style="font-family:'DM Serif Display',serif;font-size:15px;font-style:italic;color:var(--text);text-align:center;margin:10px 0 12px;">Rosh Hashana Dinner</p>
       <span class="modal-tag">Volunteering morning</span>
       <span class="modal-tag">Team lunch</span>
       <span class="modal-tag">Holiday gift for each employee</span>
@@ -627,8 +630,8 @@
 <script>
 
 const SWAG_IMGS = [
-  {src:"Images/SWAG/1.png", alt:"T-Shirt – White · Black collar edition"},
-  {src:"Images/SWAG/2.png", alt:"T-Shirt – Black · Chest logo + sleeve detail"},
+  {src:"Images/SWAG/1.png", alt:"T-Shirt – White"},
+  {src:"Images/SWAG/2.png", alt:"T-Shirt – Black"},
   {src:"Images/SWAG/3.png", alt:"Herschel Backpack · Navy with Insait logo"},
   {src:"Images/SWAG/4.png", alt:"Branded Gift Box · Socks edition"},
   {src:"Images/SWAG/5.png", alt:"Branded Socks · Black & white pair"},
@@ -637,7 +640,7 @@ const SWAG_IMGS = [
   {src:"Images/SWAG/9.png", alt:"Fleece Jacket – Sand"},
   {src:"Images/SWAG/10.png", alt:"Kraft Notebook · Dotted pages"},
   {src:"Images/SWAG/11.png", alt:"Branded Notebook"},
-  {src:"Images/SWAG/12.png", alt:"Apple Watch · 5 Year Anniversary Gift"},
+  {src:"Images/SWAG/15.png", alt:"Apple Watch · Gift for 5-Year Anniversary"},
   {src:"Images/SWAG/13.png", alt:"Lululemon Bottle"},
   {src:"Images/SWAG/14.png", alt:"Branded Cap"},
   {src:"Images/SWAG/16.png", alt:"Branded Bottle"},

@@ -260,6 +260,16 @@
     header { background: #f2f0eb !important; }
     .cat-cover img { filter: none !important; }
   }
+
+  .swag-slideshow { position: relative; width: 100%; max-width: 700px; margin: 0 auto 1rem; }
+  .swag-main-img { width: 100%; height: 420px; object-fit: contain; border-radius: 10px; background: var(--bg); cursor: pointer; display: block; }
+  .swag-nav { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 0.75rem 0; }
+  .swag-nav-btn { background: rgba(0,0,0,0.07); border: 1px solid var(--border); color: var(--text); font-size: 20px; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .swag-counter { font-size: 12px; color: var(--muted); min-width: 40px; text-align: center; }
+  .swag-thumbs { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; max-width: 700px; margin: 0 auto; }
+  .swag-thumb { width: 52px; height: 52px; object-fit: cover; border-radius: 6px; cursor: pointer; opacity: 0.45; border: 2px solid transparent; transition: all 0.15s; }
+  .swag-thumb.active { opacity: 1; border-color: #111118; }
+
 </style>
 </head>
 <body>
@@ -301,7 +311,7 @@
     <!-- 1. SWAG -->
     <div class="cat-card" onclick="openModal('swag')">
       <div class="cat-cover">
-        <img src="Images/SWAG/8.png" alt="Swag">
+        <img src="Images/SWAG/7.png" alt="Swag">
         <div class="cat-cover-overlay"></div>
         <div class="cat-cover-num">01</div>
         <div class="cat-cover-tag">Day-one experience</div>
@@ -333,7 +343,7 @@
     <!-- 3. MILESTONES -->
     <div class="cat-card" onclick="openModal('milestones')">
       <div class="cat-cover">
-        <img src="Images/Greeting/1.png" alt="Milestones">
+        <img src="Images/Greeting/2.jpeg" alt="Moments">
         <div class="cat-cover-overlay"></div>
         <div class="cat-cover-num">03</div>
         <div class="cat-cover-tag">Every milestone, every time</div>
@@ -439,25 +449,15 @@
     <h1 class="modal-title">Brand connection starts on day one.</h1>
     <p class="modal-lead">A branded kit for everyone - existing employees and new joiners alike. Produced in Israel, shipped globally. The moment it arrives, you're part of the team. Every recipient shares a photo in <strong>#people-moments</strong>.</p>
 
-    <div class="photo-grid cols3">
-      <img src="Images/SWAG/1.png" alt="T-Shirt Black" onclick="openLb(this)">
-      <img src="Images/SWAG/2.png" alt="T-Shirt White" onclick="openLb(this)">
-      <img src="Images/SWAG/3.png" alt="Backpack" onclick="openLb(this)">
-      <img src="Images/SWAG/4.png" alt="Socks Box" onclick="openLb(this)">
-      <img src="Images/SWAG/5.png" alt="Socks" onclick="openLb(this)">
-      <img src="Images/SWAG/6.png" alt="Hoodie Navy" onclick="openLb(this)">
-      <img src="Images/SWAG/7.png" alt="Hoodie Orange" onclick="openLb(this)">
-      <img src="Images/SWAG/8.png" alt="Fleece White" onclick="openLb(this)">
-      <img src="Images/SWAG/9.png" alt="Fleece Sand" onclick="openLb(this)">
-      <img src="Images/SWAG/10.png" alt="Notebook" onclick="openLb(this)">
-      <img src="Images/SWAG/12.png" alt="Watch - 5yr Anniversary" onclick="openLb(this)">
-      <img src="Images/SWAG/13.png" alt="Lululemon Bottle" onclick="openLb(this)">
-      <img src="Images/SWAG/11.png" alt="Notebook" onclick="openLb(this)">
-      <img src="Images/SWAG/14.png" alt="Cap" onclick="openLb(this)">
-      <img src="Images/SWAG/15.jpeg" alt="Apple Watch" onclick="openLb(this)">
-      <img src="Images/SWAG/16.png" alt="Bottle" onclick="openLb(this)">
-      <img src="Images/SWAG/18.png" alt="Swag item" onclick="openLb(this)">
+    <div class="swag-slideshow">
+      <img class="swag-main-img" id="swag-main" src="Images/SWAG/1.png" alt="T-Shirt Black" onclick="openLb(this)">
     </div>
+    <div class="swag-nav">
+      <button class="swag-nav-btn" onclick="swagSlide(-1)">‹</button>
+      <span class="swag-counter" id="swag-counter">1 / 17</span>
+      <button class="swag-nav-btn" onclick="swagSlide(1)">›</button>
+    </div>
+    <div class="swag-thumbs" id="swag-thumbs"></div>
 
     <div class="modal-divider"></div>
 
@@ -616,9 +616,50 @@
 </div>
 
 <script>
+
+const SWAG_IMGS = [
+  {src:"Images/SWAG/1.png", alt:"T-Shirt Black"},
+  {src:"Images/SWAG/2.png", alt:"T-Shirt White"},
+  {src:"Images/SWAG/3.png", alt:"Backpack"},
+  {src:"Images/SWAG/4.png", alt:"Socks Box"},
+  {src:"Images/SWAG/5.png", alt:"Socks"},
+  {src:"Images/SWAG/6.png", alt:"Hoodie Navy"},
+  {src:"Images/SWAG/7.png", alt:"Hoodie Orange"},
+  {src:"Images/SWAG/8.png", alt:"Fleece White"},
+  {src:"Images/SWAG/9.png", alt:"Fleece Sand"},
+  {src:"Images/SWAG/10.png", alt:"Notebook"},
+  {src:"Images/SWAG/12.png", alt:"Watch - 5yr Anniversary"},
+  {src:"Images/SWAG/13.png", alt:"Lululemon Bottle"},
+  {src:"Images/SWAG/11.png", alt:"Notebook"},
+  {src:"Images/SWAG/14.png", alt:"Cap"},
+  {src:"Images/SWAG/15.jpeg", alt:"Apple Watch"},
+  {src:"Images/SWAG/16.png", alt:"Bottle"},
+  {src:"Images/SWAG/18.png", alt:"Swag item"}
+];
+let swagCur = 0;
+function initSwagSlideshow() {
+  const wrap = document.getElementById('swag-thumbs');
+  if (!wrap) return;
+  wrap.innerHTML = '';
+  SWAG_IMGS.forEach((item, i) => {
+    const t = document.createElement('img');
+    t.src = item.src; t.className = 'swag-thumb' + (i===0?' active':'');
+    t.onclick = () => { swagCur=i; updateSwag(); };
+    wrap.appendChild(t);
+  });
+}
+function updateSwag() {
+  document.getElementById('swag-main').src = SWAG_IMGS[swagCur].src;
+  document.getElementById('swag-main').alt = SWAG_IMGS[swagCur].alt;
+  document.getElementById('swag-counter').textContent = (swagCur+1) + ' / ' + SWAG_IMGS.length;
+  document.querySelectorAll('.swag-thumb').forEach((t,i) => t.classList.toggle('active', i===swagCur));
+}
+function swagSlide(d) { swagCur=(swagCur+d+SWAG_IMGS.length)%SWAG_IMGS.length; updateSwag(); }
+
 function openModal(id) {
   document.getElementById('modal-' + id).classList.add('open');
   document.body.style.overflow = 'hidden';
+  if(id==='swag') { swagCur=0; initSwagSlideshow(); updateSwag(); }
 }
 function closeModal(id) {
   document.getElementById('modal-' + id).classList.remove('open');

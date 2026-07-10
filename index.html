@@ -140,6 +140,7 @@
   .photo-grid { display: grid; gap: 10px; margin-bottom: 1.5rem; }
   .photo-grid.cols2 { grid-template-columns: 1fr 1fr; }
   .photo-grid.cols3 { grid-template-columns: 1fr 1fr 1fr; }
+  .photo-grid.cols4 { grid-template-columns: repeat(4, 1fr); }
   .photo-grid img {
     width: 100%; border-radius: 10px; object-fit: cover;
     cursor: pointer; transition: transform 0.15s;
@@ -237,6 +238,7 @@
     .modal-lead { font-size: 13px; }
     .photo-grid.cols2 { grid-template-columns: 1fr; }
     .photo-grid.cols3 { grid-template-columns: 1fr 1fr; }
+    .photo-grid.cols4 { grid-template-columns: 1fr 1fr; }
     .modal-close { top: 12px; right: 16px; }
     .mission { padding: 2.5rem 20px; }
     .mission blockquote { font-size: 16px; }
@@ -555,14 +557,13 @@
     <div class="modal-sub">
       <h2 class="modal-sub-title">What gets celebrated</h2>
 
-      <div class="photo-grid cols3" style="margin-top:12px;">
+      <div class="photo-grid cols4" style="margin-top:12px;">
         <img src="Images/Greeting/1.png" alt="Welcome" onclick="openLb(this, event)">
         <img src="Images/Greeting/2.jpeg" alt="Happy Anniversary" onclick="openLb(this, event)">
         <img src="Images/Greeting/3.jpeg" alt="Happy Halloween" onclick="openLb(this, event)">
-      </div>
-      <div class="photo-grid cols3" style="margin:16px auto 0;">
         <img src="Images/Greeting/4.jpeg" alt="Merry Christmas" onclick="openLb(this, event)">
         <img src="Images/Greeting/5.jpeg" alt="Happy 4th of July" onclick="openLb(this, event)">
+        <img src="Images/Greeting/6.jpg" alt="Happy Birthday" onclick="openLb(this, event)">
         <img src="Images/Greeting/7.jpg" alt="Celebration" onclick="openLb(this, event)">
       </div>
     </div>

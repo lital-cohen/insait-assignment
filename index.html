@@ -72,18 +72,15 @@
   }
   .cat-cover img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
   .cat-card:hover .cat-cover img { transform: scale(1.04); }
-  .cat-cover-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.55) 100%);
-  }
   .cat-cover-num {
     position: absolute;
     top: 14px; left: 16px;
     font-family: 'DM Serif Display', serif;
     font-size: 13px;
     font-weight: 400;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.85);
     letter-spacing: 0.05em;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
   }
   .cat-cover-tag {
     position: absolute;
@@ -318,7 +315,6 @@
     <div class="cat-card" onclick="openModal('swag')">
       <div class="cat-cover">
         <img src="Images/SWAG/1.png" alt="Swag">
-        <div class="cat-cover-overlay"></div>
         <div class="cat-cover-num">01</div>
         <div class="cat-cover-tag">Day-one experience</div>
       </div>
@@ -334,7 +330,6 @@
     <div class="cat-card" onclick="openModal('events')">
       <div class="cat-cover">
         <img src="Images/HAPPY HOUR/New Year.jpg" alt="Events">
-        <div class="cat-cover-overlay"></div>
         <div class="cat-cover-num">02</div>
         <div class="cat-cover-tag">Ongoing Team Rituals</div>
       </div>
@@ -350,7 +345,6 @@
     <div class="cat-card" onclick="openModal('milestones')">
       <div class="cat-cover">
         <img src="Images/Greeting/0.jpg" alt="Moments">
-        <div class="cat-cover-overlay"></div>
         <div class="cat-cover-num">03</div>
         <div class="cat-cover-tag">Every milestone, every time</div>
       </div>
@@ -366,7 +360,6 @@
     <div class="cat-card" onclick="openModal('office')">
       <div class="cat-cover">
         <img src="Images/Office/1.png" alt="Office">
-        <div class="cat-cover-overlay"></div>
         <div class="cat-cover-num">04</div>
         <div class="cat-cover-tag">The invisible infrastructure</div>
       </div>
@@ -403,6 +396,7 @@
       </div>
       <h3 style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;margin-bottom:8px;">My main AI partner.</h3>
       <p style="font-size:13px;color:var(--muted);font-weight:300;line-height:1.75;">Claude was my primary collaborator throughout this entire assignment. I used it to develop ideas, think through priorities, refine my writing, and build this presentation from scratch - including all the HTML. Every conversation pushed the work forward.</p>
+      <button onclick="openModal('claude-shot')" style="margin-top:2px;font-size:12px;font-weight:500;color:var(--text);background:none;border:1px solid var(--border);border-radius:20px;padding:6px 16px;cursor:pointer;font-family:'Inter',sans-serif;">View</button>
     </div>
 
     <!-- CHATGPT -->
@@ -416,6 +410,7 @@
       </div>
       <h3 style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;margin-bottom:8px;">Design iteration partner.</h3>
       <p style="font-size:13px;color:var(--muted);font-weight:300;line-height:1.75;">ChatGPT helped me bring the visual side to life - swag mockups, logo placement, layouts, and wording. It required many rounds of feedback and correction to get things right, but the iterative conversation format worked well for design work.</p>
+      <button onclick="openModal('ai-mockup')" style="margin-top:2px;font-size:12px;font-weight:500;color:var(--text);background:none;border:1px solid var(--border);border-radius:20px;padding:6px 16px;cursor:pointer;font-family:'Inter',sans-serif;">View</button>
     </div>
 
 <div style="border:1px solid var(--border);border-radius:12px;padding:1.5rem;background:var(--surface);">
@@ -565,9 +560,10 @@
         <img src="Images/Greeting/2.jpeg" alt="Happy Anniversary" onclick="openLb(this, event)">
         <img src="Images/Greeting/3.jpeg" alt="Happy Halloween" onclick="openLb(this, event)">
       </div>
-      <div class="photo-grid cols2" style="max-width:66%;margin:16px auto 0;">
+      <div class="photo-grid cols3" style="margin:16px auto 0;">
         <img src="Images/Greeting/4.jpeg" alt="Merry Christmas" onclick="openLb(this, event)">
         <img src="Images/Greeting/5.jpeg" alt="Happy 4th of July" onclick="openLb(this, event)">
+        <img src="Images/Greeting/7.jpg" alt="Celebration" onclick="openLb(this, event)">
       </div>
     </div>
 
@@ -630,7 +626,298 @@
   <span style="font-size:11px;color:var(--muted);" id="lb-counter"></span>
 </div>
 
+<div class="modal" id="modal-claude-shot">
+  <button class="modal-close" onclick="closeModal('claude-shot')">×</button>
+  <div class="modal-inner" style="max-width:720px;">
+    <img src="Images/AI/10.png" alt="Working with Claude" style="width:100%;border-radius:12px;display:block;margin-bottom:20px;">
+    <p style="font-size:14px;color:var(--muted);font-weight:300;line-height:1.85;">Working with Claude was a real back-and-forth - over 40 iterations, refining wording, adjusting image placement, and tightening details until everything felt right. This screenshot captures one exchange while building the AI section of this page: Claude laid it out with bullet points, and I asked it to swap those for the tool logos instead.</p>
+  </div>
+</div>
+
+<div class="modal" id="modal-ai-mockup">
+  <button class="modal-close" onclick="closeModal('ai-mockup')">×</button>
+  <div class="modal-inner" style="max-width:1100px;">
+    <iframe id="ai-mockup-frame" style="width:100%;height:82vh;border:none;border-radius:14px;background:#FAF8F4;display:block;" title="AI Workflow Mockup"></iframe>
+  </div>
+</div>
+
 <script>
+
+const AI_MOCKUP_HTML = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Workflow - Branded Backpack Mockup</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root{
+    --cream:#FAF8F4;
+    --paper:#FFFFFF;
+    --ink:#2E3238;
+    --slate:#5B6B7C;
+    --rose:#C98B93;
+    --amber:#C9A05B;
+    --gold-light:#E7D3A6;
+    --gold-line:#DDBE85;
+    --red-line:#C15B54;
+    --sage:#93A98C;
+    --line:#E3DFD6;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin:0; padding:0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+
+  .page {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 64px 56px 72px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--slate);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 38px;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin: 0 0 10px;
+    color: var(--ink);
+  }
+
+  .subtitle {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--slate);
+    max-width: 640px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--line);
+    margin: 36px 0 40px;
+  }
+
+  .sequence {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 14px;
+    position: relative;
+  }
+
+  .step-number {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--slate);
+    margin-bottom: 16px;
+    font-weight: 500;
+    height: 16px;
+  }
+
+  .step.final .step-number {
+    color: var(--red-line);
+  }
+
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 260px;
+    transition: border-color .2s ease;
+  }
+
+  .step.final .card {
+    border: 1.5px solid var(--red-line);
+    background: linear-gradient(180deg, #FDF6F5 0%, #FFFFFF 100%);
+  }
+
+  .card img {
+    max-height: 240px;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .step-label {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    margin-top: 18px;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+  }
+
+  .mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .mark.x {
+    background: #F3E6E4;
+    color: #B65C52;
+  }
+
+  .mark.check {
+    background: #FCEFE8;
+    color: var(--red-line);
+  }
+
+  .step.final .step-label {
+    color: var(--red-line);
+  }
+
+  .step-caption {
+    font-size: 12.5px;
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.55;
+    margin-top: 8px;
+    max-width: 190px;
+  }
+
+  .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    flex-shrink: 0;
+    color: var(--rose);
+    height: 260px;
+    margin-top: 32px;
+  }
+
+  .arrow svg { width: 32px; height: 14px; }
+
+  .footer-row {
+    margin-top: 48px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+
+  .footer-note {
+    font-size: 12.5px;
+    color: var(--slate);
+    line-height: 1.7;
+    max-width: 720px;
+  }
+
+  .footer-note strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .sequence { flex-direction: column; }
+    .arrow { transform: rotate(90deg); height: auto; margin: 4px 0; }
+    .step { padding: 8px 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="eyebrow">Part 2 - How You Work Day-to-Day</div>
+    <h1>Branded Merch Swag, Built With AI</h1>
+    <div class="subtitle">
+      Instead of describing this 60-day plan initiative in the abstract, here's the actual
+      back-and-forth I had with an AI image tool while producing a branded backpack mockup
+      for a new-hire welcome kit - including the misses along the way.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="sequence">
+
+      <div class="step">
+        <div class="step-number">01</div>
+        <div class="card"></div>
+        <div class="step-label"><span class="mark x">✕</span> Wrong logo &amp; typo</div>
+        <div class="step-caption">Asked for a Herschel backpack mockup with our branding - it generated a logo that wasn't ours at all.</div>
+      </div>
+
+      <div class="arrow"><svg viewBox="0 0 32 14" fill="none"><path d="M0 7H30M30 7L23 1M30 7L23 13" stroke="currentColor" stroke-width="1.4"/></svg></div>
+
+      <div class="step">
+        <div class="step-number">02</div>
+        <div class="card"></div>
+        <div class="step-label"><span class="mark x">✕</span> Right logo, wrong scale</div>
+        <div class="step-caption">Corrected it to the real logo - but it came back oversized and clunky on the bag.</div>
+      </div>
+
+      <div class="arrow"><svg viewBox="0 0 32 14" fill="none"><path d="M0 7H30M30 7L23 1M30 7L23 13" stroke="currentColor" stroke-width="1.4"/></svg></div>
+
+      <div class="step">
+        <div class="step-number">03</div>
+        <div class="card"></div>
+        <div class="step-label"><span class="mark x">✕</span> Dropped an element</div>
+        <div class="step-caption">Asked it to shrink the mark and swap the dot for the wordmark - it resized correctly but dropped the dot entirely.</div>
+      </div>
+
+      <div class="arrow"><svg viewBox="0 0 32 14" fill="none"><path d="M0 7H30M30 7L23 1M30 7L23 13" stroke="currentColor" stroke-width="1.4"/></svg></div>
+
+      <div class="step final">
+        <div class="step-number">04 - Final</div>
+        <div class="card"></div>
+        <div class="step-label"><span class="mark check">✓</span> Correct &amp; complete</div>
+        <div class="step-caption">I stepped in and directed the exact composition: mark and wordmark together, properly scaled. This is the final result.</div>
+      </div>
+
+    </div>
+
+    <div class="footer-row">
+      <div class="footer-note">
+        <strong>Where AI helped:</strong> generated four full mockup variations in minutes, letting me
+        see the branding in context instead of imagining it. &nbsp;
+        <strong>Where I stepped in:</strong> every round needed a specific, directive correction -
+        AI didn't self-correct the brand mark on its own; I had to catch each error and tell it
+        exactly what to fix.
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
+`;
 
 const SWAG_IMGS = [
   {src:"Images/SWAG/1.png", alt:""},
@@ -680,6 +967,7 @@ function openModal(id) {
   document.getElementById('modal-' + id).classList.add('open');
   document.body.style.overflow = 'hidden';
   if(id==='swag') { swagCur=0; initSwagSlideshow(); updateSwag(); }
+  if(id==='ai-mockup') { document.getElementById('ai-mockup-frame').srcdoc = AI_MOCKUP_HTML; }
 }
 function closeModal(id) {
   document.getElementById('modal-' + id).classList.remove('open');

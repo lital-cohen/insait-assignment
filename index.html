@@ -166,7 +166,7 @@
   .hash { color: #555; font-size: 14px; }
 
   /* DONE BOX */
-  .done-box { background: var(--light); border-left: 2px solid #111118; border-radius: 0 10px 10px 0; padding: 14px 18px; font-size: 13px; color: var(--muted); font-weight: 300; line-height: 1.65; margin-top: 1.5rem; }
+  .done-box { background: var(--light); border-radius: 10px; padding: 14px 18px; font-size: 13px; color: var(--muted); font-weight: 300; line-height: 1.65; margin-top: 1.5rem; }
   .done-box strong { color: var(--text); font-weight: 500; }
 
   /* LIGHTBOX for photos */
@@ -239,6 +239,7 @@
     .photo-grid.cols2 { grid-template-columns: 1fr; }
     .photo-grid.cols3 { grid-template-columns: 1fr 1fr; }
     .photo-grid.cols4 { grid-template-columns: 1fr 1fr; }
+    .greeting-grid { grid-template-columns: 1fr !important; }
     .modal-close { top: 12px; right: 16px; }
     .mission { padding: 2.5rem 20px; }
     .mission blockquote { font-size: 16px; }
@@ -492,22 +493,22 @@
       <p class="modal-sub-text">Every two weeks. Kosher, vegan-friendly, always a surprise.</p>
       <div class="photo-grid cols2" style="margin-bottom:8px;max-width:78%;margin-left:auto;margin-right:auto;">
         <div>
-          <img src="Images/HAPPY HOUR/McDonalds.png" alt="McDonald's" onclick="openLb(this, event)" style="margin-bottom:6px;">
-          <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">Happy Hour · McDonald's</p>
+          <img src="Images/HAPPY HOUR/McDonalds.png" alt="Happy Hour · McDonald's" onclick="openLb(this, event)" style="margin-bottom:6px;">
+          <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">McDonald's</p>
         </div>
         <div>
-          <img src="Images/HAPPY HOUR/Jusa.jpg" alt="Juices &amp; Yogurts" onclick="openLb(this, event)" style="margin-bottom:6px;">
-          <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">Happy Hour · Juices &amp; Yogurts</p>
+          <img src="Images/HAPPY HOUR/Jusa.jpg" alt="Happy Hour · Juices &amp; Yogurts" onclick="openLb(this, event)" style="margin-bottom:6px;">
+          <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">Juices &amp; Yogurts</p>
         </div>
       </div>
       <div class="photo-grid cols2" style="max-width:78%;margin-left:auto;margin-right:auto;">
         <div>
-          <img src="Images/HAPPY HOUR/Pancake.png" alt="Pancake" onclick="openLb(this, event)" style="margin-bottom:6px;">
-          <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">Happy Hour · Pancake</p>
+          <img src="Images/HAPPY HOUR/Pancake.png" alt="Happy Hour · Pancake" onclick="openLb(this, event)" style="margin-bottom:6px;">
+          <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">Pancake</p>
         </div>
         <div>
-          <img src="Images/HAPPY HOUR/Humus.jpeg" alt="Hummus &amp; Falafel" onclick="openLb(this, event)" style="margin-bottom:6px;">
-          <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">Happy Hour · Hummus &amp; Falafel</p>
+          <img src="Images/HAPPY HOUR/Humus.jpeg" alt="Happy Hour · Hummus &amp; Falafel" onclick="openLb(this, event)" style="margin-bottom:6px;">
+          <p style="font-size:11px;font-weight:500;color:var(--muted);text-align:center;">Hummus &amp; Falafel</p>
         </div>
       </div>
       <span class="modal-tag">Kosher</span>
@@ -557,12 +558,12 @@
     <div class="modal-sub">
       <h2 class="modal-sub-title">What gets celebrated</h2>
 
-      <div class="photo-grid cols3" style="margin-top:12px;gap:18px;">
+      <div class="photo-grid cols3 greeting-grid" style="margin-top:12px;gap:18px;">
         <img src="Images/Greeting/1.png" alt="Welcome" onclick="openLb(this, event)">
         <img src="Images/Greeting/2.jpeg" alt="Happy Anniversary" onclick="openLb(this, event)">
         <img src="Images/Greeting/3.jpeg" alt="Happy Halloween" onclick="openLb(this, event)">
       </div>
-      <div class="photo-grid cols3" style="margin:16px auto 0;gap:18px;">
+      <div class="photo-grid cols3 greeting-grid" style="margin:16px auto 0;gap:18px;">
         <img src="Images/Greeting/4.jpeg" alt="Merry Christmas" onclick="openLb(this, event)">
         <img src="Images/Greeting/5.jpeg" alt="Happy 4th of July" onclick="openLb(this, event)">
         <img src="Images/Greeting/6.png" alt="Happy Birthday" onclick="openLb(this, event)">

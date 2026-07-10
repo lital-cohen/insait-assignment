@@ -628,8 +628,9 @@
 
 <div class="modal" id="modal-claude-shot">
   <button class="modal-close" onclick="closeModal('claude-shot')">×</button>
-  <div class="modal-inner" style="max-width:720px;">
-    <img src="Images/AI/10.png" alt="Working with Claude" style="width:100%;border-radius:12px;display:block;margin-bottom:20px;">
+  <div class="modal-inner" style="max-width:560px;">
+    <p style="font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;text-align:center;">Screenshot from my conversation with Claude</p>
+    <img src="Images/AI/10.png" alt="Working with Claude" style="width:100%;max-width:420px;display:block;margin:0 auto 20px;border-radius:12px;">
     <p style="font-size:14px;color:var(--muted);font-weight:300;line-height:1.85;">Working with Claude was a real back-and-forth - over 40 iterations, refining wording, adjusting image placement, and tightening details until everything felt right. This screenshot captures one exchange while building the AI section of this page: Claude laid it out with bullet points, and I asked it to swap those for the tool logos instead.</p>
   </div>
 </div>
@@ -870,7 +871,7 @@ const AI_MOCKUP_HTML = `<!DOCTYPE html>
 
       <div class="step">
         <div class="step-number">01</div>
-        <div class="card"></div>
+        <div class="card"><img src="Images/AI/1.png" alt="Wrong logo and typo mockup"></div>
         <div class="step-label"><span class="mark x">✕</span> Wrong logo &amp; typo</div>
         <div class="step-caption">Asked for a Herschel backpack mockup with our branding - it generated a logo that wasn't ours at all.</div>
       </div>
@@ -879,7 +880,7 @@ const AI_MOCKUP_HTML = `<!DOCTYPE html>
 
       <div class="step">
         <div class="step-number">02</div>
-        <div class="card"></div>
+        <div class="card"><img src="Images/AI/2.png" alt="Right logo, wrong scale mockup"></div>
         <div class="step-label"><span class="mark x">✕</span> Right logo, wrong scale</div>
         <div class="step-caption">Corrected it to the real logo - but it came back oversized and clunky on the bag.</div>
       </div>
@@ -888,7 +889,7 @@ const AI_MOCKUP_HTML = `<!DOCTYPE html>
 
       <div class="step">
         <div class="step-number">03</div>
-        <div class="card"></div>
+        <div class="card"><img src="Images/AI/3.png" alt="Dropped element mockup"></div>
         <div class="step-label"><span class="mark x">✕</span> Dropped an element</div>
         <div class="step-caption">Asked it to shrink the mark and swap the dot for the wordmark - it resized correctly but dropped the dot entirely.</div>
       </div>
@@ -897,7 +898,7 @@ const AI_MOCKUP_HTML = `<!DOCTYPE html>
 
       <div class="step final">
         <div class="step-number">04 - Final</div>
-        <div class="card"></div>
+        <div class="card"><img src="Images/AI/4.png" alt="Final correct mockup"></div>
         <div class="step-label"><span class="mark check">✓</span> Correct &amp; complete</div>
         <div class="step-caption">I stepped in and directed the exact composition: mark and wordmark together, properly scaled. This is the final result.</div>
       </div>
